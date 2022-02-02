@@ -1,0 +1,83 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/Sidebar.css" />
+    <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <script src="js/ModalBox.js" defer></script>
+    <script src="js/SideBar.js" defer></script>
+    <script src="js/site.js" defer></script>
+    <link rel="stylesheet" href="@Url.Content("~/css/site.css")" />
+    <title>@ViewBag.Title</title>
+</head>
+<body>
+    <div class="wrapper">
+        @if (!User.IsInRole("Admin"))
+         {
+            <nav id="sidebar">
+                <div class="sidebar-header">
+                    <h3>Shopping Cart</h3>
+                </div>
+                <div id="cartDetails"></div>            
+                <div id="proceedOrder"></div>
+                <div id="confirmedOrder"></div>
+            </nav>
+         }
+
+        <div id="content">                     
+            <header>
+                <h1 class="text-center">Web Shop</h1>
+                <div class="navbar-collapse collapse d-sm-inline-flex flex-sm-row-reverse">
+                    <ul class="nav navbar-nav navbar-left">
+                        <li class="nav-item">
+                            <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
+                        </li>
+                        @if (User.IsInRole("User"))
+                        {
+                            <li class="nav-item">
+                                <partial name="_OrderHistory" />
+                            </li>
+                        }
+                        <li class="nav-item">
+                            <partial name="_LoginPartial" />
+                        </li>
+                    </ul>
+                    @if (!User.IsInRole("Admin"))
+                    {
+                        <ul class="nav navbar-nav navbar-left">
+                            <li>
+                                <a id="sidebarCollapse">
+                                    Cart
+                                    <span id="idCartCount" class=" glyphicon glyphicon-shopping-cart badge"></span>
+                                </a>
+                            </li>
+                        </ul>
+                    }
+                    <ul class="nav navbar-nav navbar-left">
+                        <partial name="_AdminMenuPartial" />
+                    </ul>
+                </div>
+            </header>
+            <main>
+                <div  >
+                    @RenderSection("Scripts", required: false)
+                    @RenderBody()
+                </div>
+            </main>
+            <footer>
+                <p class="text-center">
+                    Contact: +467-123 45 67 (Mo-Fr 8am-5pm)<br />
+                    Email: admin@admin.com
+                </p>
+                <p class="text-center">
+                    &#9400; @DateTime.Now.ToShortDateString() Group 2
+                </p>
+            </footer>
+        </div>
+    </div>
+</body>
+</html>

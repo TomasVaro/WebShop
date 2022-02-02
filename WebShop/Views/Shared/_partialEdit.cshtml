@@ -1,0 +1,57 @@
+﻿@model ProductModel
+
+<!-- Modal content-->
+<div class="modal-content">
+    <div class="modal-header">
+        <h4 class="modal-title" id="editProductLabel">Edit product</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+    <!-- Main modal -->
+    <div class="modal-body">
+        <form asp-action="Edit" asp-controller="Home">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="ProductId" />
+            <input type="hidden" asp-for="ImageName" />
+            <div class="form-group">
+                <label asp-for="ProductName" class="control-label">Product Name</label>
+                <input asp-for="ProductName" class="form-control" placeholder="@Model.ProductName"/>
+                <span asp-validation-for="ProductName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Price" class="control-label">Price</label>
+                <input asp-for="Price" class="form-control" placeholder="@Model.Price" />
+                <span asp-validation-for="Price" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Description" class="control-label">Description</label>
+                @Html.TextAreaFor(model => model.Description, new { @class = "form-control", @rows = 4 })
+                <span asp-validation-for="Description" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-default" />
+            </div>
+        </form>
+        <hr />
+        <!-- Image -->
+        <label for="product-image" class="col-form-label">Image</label>
+        <div class="row">
+            <div class="col-md-4">
+                <form asp-action="UploadImage" enctype="multipart/form-data">
+                    <input type="file" asp-for="ImageName" accept="image/x-png,image/gif,image/jpeg">
+                    <input type="hidden" asp-for="ImageName">
+                    <input type="hidden" asp-for="Description">
+                    <input type="hidden" asp-for="ProductId">
+                    <input type="hidden" asp-for="ProductName">
+                    <input type="hidden" asp-for="Price">
+                    <br>
+                    <input type="submit" value="Save" class="btn btn-default" />
+                </form>
+            </div>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+    </div>
+</div>

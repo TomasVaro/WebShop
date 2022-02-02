@@ -1,0 +1,74 @@
+﻿@model ProductViewModel
+
+@if (@Model.ListCart.Count != 0)
+{
+    <table style="width: 100% ,fit-content" class="cart-font"align="center">
+        <colgroup>
+            <col span="1" style="width: 30%;">
+            <col span="1" style="width: 23%;">
+            <col span="1" style="width: 23%;">
+            <col span="1" style="width: 24%;">
+        </colgroup>
+        <thead>
+            <tr>
+                <th>Product</th>
+                <th>Quantity</th>
+                <th>Remove</th>
+                <th>Price</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var group in Model.ListCart.GroupBy(p => p.ProductId))
+            {
+                <tr>
+                    <td>
+                        <img class="cart-thumbnail" src="~/Images/@group.First().ImageName" alt="Img">
+                        <br />@group.First().ProductName
+                    </td>
+                    <td>
+                        @group.Count()
+                    </td>
+                    <td>
+                        <a  class="btn btn-danger" href="@Url.Action("RemoveFromCart","Home", new { productId=group.First().ProductId})">X</a>
+                    </td>
+                    <td>
+                        SEK @group.Sum(p => p.Price)
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+
+    @if (@Model.ListCart.Sum(i => i.Price) != 0)
+    {
+        <div class="cart-footer">
+            <p class="cart-total">Total</p>
+            <div class="product-cards__prices ">
+                SEK  @Model.ListCart.Sum(i => i.Price)
+            </div>
+        </div>
+    }
+    else
+    {
+        <div class="cart-footer">
+            <p class="cart-total">Total</p>
+            <div class="product-cards__prices">
+                SEK 0
+            </div>
+        </div>
+    }
+    <div>   
+        @if (User.Identity.IsAuthenticated)
+        {
+            <button class="btn btn-primary " onclick="ProceedOrder()">Proceed to Payment</button>
+        }
+        @if (!User.Identity.IsAuthenticated)
+        {
+            <button class="btn btn-primary " onclick="location.href = '@Url.Action("Proceed","Home")'">Proceed to Payment</button>        
+        }
+    </div>
+}
+else
+{ 
+    <p>Your cart is empty</p>
+}

@@ -1,0 +1,110 @@
+﻿@model ProductViewModel
+@{
+    ViewData["Title"] = "Home";
+}
+
+<!-- Modal -->
+<div id="myModal" class="modal fade" tabindex="-1">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div id='myModalContent'></div>
+        </div>
+    </div>
+</div>
+
+<div id="CartModal" class="modal fade" tabindex="-1">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div id='CartModalContent'></div>
+        </div>
+    </div>
+</div>
+
+@if (User.IsInRole("Admin"))
+{
+    <button type="button" class="btn btn-primary createButton" data-toggle="modal" data-target="#createProduct">Create product</button>
+}
+
+<div class="modal fade" id="createProduct" tabindex="-1" role="dialog" aria-labelledby="createProductLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="createProductLabel">Create product</h4>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <!-- Main modal -->
+            <div class="modal-body">
+                <form asp-action="Create" asp-controller="Home" enctype="multipart/form-data">
+                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                    <div class="form-group">
+                        <label asp-for="ProductName" class="control-label">Product Name</label>
+                        <input asp-for="ProductName" class="form-control" />
+                        <span asp-validation-for="ProductName" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="Price" class="control-label"></label>
+                        <input asp-for="Price" class="form-control" />
+                        <span asp-validation-for="Price" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="Description" class="control-label"></label>
+                        <input asp-for="Description" class="form-control" />
+                        <span asp-validation-for="Description" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="ImageName" class="control-label">Image</label>
+                        <input type="file" asp-for="ImageName" accept="image/x-png,image/gif,image/jpeg">
+                        <span asp-validation-for="ImageName" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <input type="submit" value="Create" class="btn btn-default" />
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container">
+    <h2 class="text-uppercase">Games</h2>
+    <h5>
+        <span>
+            @if (ViewBag.Message != null)
+            {
+                @ViewBag.Message
+            }
+        </span>
+    </h5>
+    <div>
+
+    </div>
+    <br />
+    <div>
+        <form asp-action="Index" method="post" role="form">
+            @Html.AntiForgeryToken()
+            <input type="search" asp-for="Filter" placeholder="Search" style="width:max-content;height:30px; " />
+            <input type="submit" class="btn btn-primary" name="btnFilter" value="Go" />
+        </form>
+    </div>
+    @if (User.Identity.IsAuthenticated)
+    {
+        <script>
+            var userAuthorized = true;
+        </script>
+    }
+    else
+    {
+        <script>
+            var userAuthorized = false;
+        </script>
+    }
+    <div class="container">
+        <partial name="_partialListProduct" model="Model.ListProductView" />
+    </div>
+</div>
+

@@ -1,0 +1,45 @@
+﻿@model WebShop.Models.OrderModel
+
+@{
+    ViewData["Title"] = "DeleteOrder";
+}
+
+<h2>Delete</h2>
+<hr />
+<h3>Are you sure you want to delete the whole order?</h3>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayName("Order Id")
+            </th>
+            <th>
+                @Html.DisplayName("User Name")
+            </th>
+            <th>
+                @Html.DisplayName("Date")
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => modelItem.OrderId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => modelItem.User.UserName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => modelItem.Date)
+            </td>
+        </tr>
+    </tbody>
+</table>
+<div>
+    <a asp-action="DeleteOrderConfirmed" asp-route-id="@Model.OrderId">Delete</a> |
+    <a asp-action="Details" asp-route-id="@Model.OrderId">Details</a> |
+    <a asp-action="Index">Back to Orderlist</a>
+</div>
+<br>

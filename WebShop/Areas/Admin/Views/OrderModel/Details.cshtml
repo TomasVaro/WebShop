@@ -1,0 +1,109 @@
+﻿@model OrderEditModel
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h2>Order Details</h2>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayName("Order Id")
+            </th>
+            <th>
+                @Html.DisplayName("Date")
+            </th>
+            <th>
+                @Html.DisplayName("User Name")
+            </th>
+            <th>
+                @Html.DisplayName("Product Name")
+            </th>
+            <th>
+                @Html.DisplayName("Price")
+            </th>
+            <th>
+                @Html.DisplayName("Quantity")
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.ProductOrderModel)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.OrderId)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Order.Date)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Order.User.UserName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Product.ProductName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Product.Price)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Quantity)
+                </td>
+                <td>
+                    <a href="#" onclick="location.href = '@Url.Action("EditPart", "OrderModel", new {
+                                                         OrderId = item.OrderId,
+                                                         ProductId = item.ProductId,
+                                                         Quantity = item.Quantity })'">Edit</a> |
+                    <a href="#" onclick="location.href = '@Url.Action("DeletePart", "OrderModel", new {
+                                                         OrderId = item.OrderId,
+                                                         ProductId = item.ProductId,
+                                                         Quantity = item.Quantity })'">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+<hr />
+
+<h2>Add to Order</h2>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayName("Product Name")
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Product.Price)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Product.Description)
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.ProductModel)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ProductName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Price)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Description)
+                </td>
+                <td>
+                    <a href="#/" onclick="location.href='@Url.Action("AddToOrder", "OrderModel", new {orderId=Model.ProductOrderModel[0].OrderId, productId=item.ProductId})'">Add to Order</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+<hr />
+<div>
+    <a asp-action="Index">Back to Orderlist</a>
+</div>
+<br>

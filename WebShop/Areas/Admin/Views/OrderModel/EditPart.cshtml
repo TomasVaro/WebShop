@@ -1,0 +1,47 @@
+﻿@model WebShop.Models.ProductOrderModel
+
+@{
+    ViewData["Title"] = "EditPart";
+}
+
+<h2>Edit part of Order</h2>
+
+<hr />
+<h4>ProductOrderModel</h4>
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="ProductId" />
+            <input type="hidden" asp-for="OrderId" />
+            <div class="form-group">
+                <label asp-for="Order.User.UserName" class="control-label">User Name</label>
+                <input asp-for="Order.User.UserName" class="form-control" readonly style="width:auto" />
+                <span asp-validation-for="Order.User.UserName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Product" class="control-label"></label>
+                <input asp-for="Product.ProductName" class="form-control" readonly style="width:auto" />
+                <span asp-validation-for="Product.ProductName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Quantity" class="control-label"></label>
+                <input asp-for="Quantity" class="form-control" style="width:auto" />
+                <span asp-validation-for="Quantity" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Product.Price" class="control-label"></label>
+                <input asp-for="Product.Price" class="form-control" style="width:auto" />
+                <span asp-validation-for="Product.Price" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" asp-action="EditPartConfirmed" value="Save" class="btn btn-default" />
+            </div>
+        </form>
+    </div>
+</div>
+<hr />
+<div>
+    <a asp-action="Details" asp-route-id="@Model.OrderId">Back to Details</a>
+</div>
+<br>

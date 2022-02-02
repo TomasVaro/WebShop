@@ -1,0 +1,8 @@
+﻿@if (User.IsInRole("User") || User.IsInRole("Admin"))
+{
+<ul class="nav navbar-nav navbar-left">
+    <li>  
+    <a class="" asp-area="User" asp-controller="OrderHistory" asp-action="Index">Order History</a> 
+    </li>
+</ul>
+}

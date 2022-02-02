@@ -1,0 +1,60 @@
+﻿@model WebShop.Models.ProductOrderModel
+
+@{
+    ViewData["Title"] = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<hr />
+<div>
+    <h4>Order</h4>
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayName("Order Id")
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.OrderId)
+        </dd>
+        <dt>
+            @Html.DisplayName("Date")
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Order.Date)
+        </dd>
+        <dt>
+            @Html.DisplayName("User Name")
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Order.User.UserName)
+        </dd>
+        <dt>
+            @Html.DisplayName("Product Name")
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Product.ProductName)
+        </dd>
+        <dt>
+            @Html.DisplayName("Price")
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Product.Price)
+        </dd>
+        <dt>
+            @Html.DisplayName("Quantity")
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Quantity)
+        </dd>
+    </dl>
+    <hr />
+    <div>
+        <a href="#" onclick="location.href = '@Url.Action("DeletePartConfirmed", "OrderModel", new {
+                                                     OrderId=Model.OrderId,
+                                                     ProductId=Model.ProductId,
+                                                     Quantity=Model.Quantity})'">Delete</a> |
+        <a asp-action="Details" asp-route-id="@Model.OrderId">Back to Details</a>
+    </div>
+</div>
+<br>

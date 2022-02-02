@@ -1,0 +1,132 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="Migrations\20220106230216_FirstMigration.cs" />
+    <Compile Remove="Migrations\20220106230216_FirstMigration.Designer.cs" />
+    <Compile Remove="Migrations\20220106230408_FirstMigration.cs" />
+    <Compile Remove="Migrations\20220106230408_FirstMigration.Designer.cs" />
+    <Compile Remove="Migrations\20220107072030_FirstMigration.cs" />
+    <Compile Remove="Migrations\20220107072030_FirstMigration.Designer.cs" />
+    <Compile Remove="Migrations\20220107072716_FirstMigration.cs" />
+    <Compile Remove="Migrations\20220107072716_FirstMigration.Designer.cs" />
+    <Compile Remove="Migrations\20220107072801_FirstMigration.cs" />
+    <Compile Remove="Migrations\20220107072801_FirstMigration.Designer.cs" />
+    <Compile Remove="Migrations\20220107072841_FirstMigration.cs" />
+    <Compile Remove="Migrations\20220107072841_FirstMigration.Designer.cs" />
+    <Compile Remove="Migrations\20220107072917_FirstMigration.cs" />
+    <Compile Remove="Migrations\20220107072917_FirstMigration.Designer.cs" />
+    <Compile Remove="Migrations\20220107072947_FirstMigration.cs" />
+    <Compile Remove="Migrations\20220107072947_FirstMigration.Designer.cs" />
+    <Compile Remove="Migrations\20220107073032_FirstMigration.cs" />
+    <Compile Remove="Migrations\20220107073032_FirstMigration.Designer.cs" />
+    <Compile Remove="Migrations\20220107073108_FirstMigration.cs" />
+    <Compile Remove="Migrations\20220107073108_FirstMigration.Designer.cs" />
+    <Compile Remove="Migrations\20220107073140_FirstMigration.cs" />
+    <Compile Remove="Migrations\20220107073140_FirstMigration.Designer.cs" />
+    <Compile Remove="Migrations\20220107073216_FirstMigration.cs" />
+    <Compile Remove="Migrations\20220107073216_FirstMigration.Designer.cs" />
+    <Compile Remove="Migrations\20220107073258_FirstMigration.cs" />
+    <Compile Remove="Migrations\20220107073258_FirstMigration.Designer.cs" />
+    <Compile Remove="Migrations\20220107073350_FirstMigration.cs" />
+    <Compile Remove="Migrations\20220107073350_FirstMigration.Designer.cs" />
+    <Compile Remove="Migrations\20220107081931_FirstMigration.cs" />
+    <Compile Remove="Migrations\20220107081931_FirstMigration.Designer.cs" />
+    <Compile Remove="Migrations\20220107085744_FirstMigration.cs" />
+    <Compile Remove="Migrations\20220107085744_FirstMigration.Designer.cs" />
+    <Compile Remove="Migrations\20220107091442_FirstMigration.cs" />
+    <Compile Remove="Migrations\20220107091442_FirstMigration.Designer.cs" />
+    <Compile Remove="Migrations\20220107092649_FirstMigration.cs" />
+    <Compile Remove="Migrations\20220107092649_FirstMigration.Designer.cs" />
+    <Compile Remove="Migrations\20220107094848_FirstMigration.cs" />
+    <Compile Remove="Migrations\20220107094848_FirstMigration.Designer.cs" />
+    <Compile Remove="Migrations\20220112092429_Added roles.cs" />
+    <Compile Remove="Migrations\20220112092429_Added roles.Designer.cs" />
+    <Compile Remove="Migrations\20220114172433_Added fields to login.cs" />
+    <Compile Remove="Migrations\20220114172433_Added fields to login.Designer.cs" />
+    <Compile Remove="Migrations\20220117130859_Remove UserId.cs" />
+    <Compile Remove="Migrations\20220117130859_Remove UserId.Designer.cs" />
+    <Compile Remove="Migrations\20220117131410_Added UserId.cs" />
+    <Compile Remove="Migrations\20220117131410_Added UserId.Designer.cs" />
+    <Compile Remove="Migrations\20220117133512_Changed UserId to Id.cs" />
+    <Compile Remove="Migrations\20220117133512_Changed UserId to Id.Designer.cs" />
+    <Compile Remove="Migrations\20220117133921_Corrected UserId in OrderChart.cs" />
+    <Compile Remove="Migrations\20220117133921_Corrected UserId in OrderChart.Designer.cs" />
+    <Compile Remove="Migrations\20220118174507_Added ImageFile to ProductModel.cs" />
+    <Compile Remove="Migrations\20220118174507_Added ImageFile to ProductModel.Designer.cs" />
+    <Compile Remove="Migrations\20220120172232_Fix DataBase.cs" />
+    <Compile Remove="Migrations\20220120172232_Fix DataBase.Designer.cs" />
+    <Compile Remove="Migrations\20220120172915_Fixed DataBase.cs" />
+    <Compile Remove="Migrations\20220120172915_Fixed DataBase.Designer.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Areas\Admin\Data\" />
+    <Folder Include="Data\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="Areas\User\Views\OrderHistory\Index.cshtml" />
+    <None Include="Areas\User\Views\_ViewImports.cshtml" />
+    <None Include="Views\Home\Index.cshtml" />
+    <None Include="Views\Shared\Error.cshtml" />
+    <None Include="Views\Shared\_AdminMenuPartial.cshtml" />
+    <None Include="Views\Shared\_Layout.cshtml" />
+    <None Include="Views\Shared\_LoginPartial.cshtml" />
+    <None Include="Views\Shared\_OrderReceipt.cshtml" />
+    <None Include="Views\Shared\_partialCartSummary.cshtml" />
+    <None Include="Views\Shared\_partialEdit.cshtml" />
+    <None Include="Views\Shared\_partialListProduct.cshtml" />
+    <None Include="Views\Shared\_partialProductInfo.cshtml" />
+    <None Include="Views\Shared\_partialShoppingCart.cshtml" />
+    <None Include="Views\Shared\_ProceedOrderPayment.cshtml" />
+    <None Include="Views\Shared\_ValidationScriptsPartial.cshtml" />
+    <None Include="Views\_ViewImports.cshtml" />
+    <None Include="Views\_ViewStart.cshtml" />
+    <None Include="wwwroot\Images\DarkSoulsRemastered.png" />
+    <None Include="wwwroot\Images\PokémonBrilliantDiamond.png" />
+    <None Include="wwwroot\Images\Skyrim.png" />
+    <None Include="wwwroot\Images\SuperMarioGalaxy.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="iTextSharp" Version="5.5.13.2" />
+    <PackageReference Include="itextsharp.xmlworker" Version="5.5.13.2" />
+    <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="3.1.21" />
+    <PackageReference Include="Microsoft.AspNetCore.Identity.UI" Version="3.1.21" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="3.1.22" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="3.1.21" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="3.1.21">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="3.1.5" />
+    <PackageReference Include="ModalJS.Mvc" Version="1.0.8">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Update="Areas\Admin\Views\Shared\_Layout.cshtml">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Update="Areas\Admin\Views\_ViewStart.cshtml">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Update="Areas\User\Views\_ViewImports.cshtml">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Update="Views\_ViewStart.cshtml">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+  </ItemGroup>
+
+</Project>

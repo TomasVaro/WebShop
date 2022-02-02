@@ -1,0 +1,67 @@
+﻿@model IEnumerable<WebShop.Models.OrderModel>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h2>Order Manager</h2>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayName("Order Id")
+            </th>
+            <th>
+                @Html.DisplayName("User Name")
+            </th>
+            <th>
+                @Html.DisplayName("Street")
+            </th>
+            <th>
+                @Html.DisplayName("Zip Code")
+            </th>
+            <th>
+                @Html.DisplayName("City")
+            </th>
+            <th>
+                @Html.DisplayName("Date")
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.OrderId)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.User.UserName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.User.Street)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.User.ZipCode)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.User.City)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Date)
+                </td>
+                <td>
+                    <a href="#" onclick="location.href = '@Url.Action("EditOrder", "OrderModel", new {
+                                                         OrderId=item.OrderId,
+                                                         UserId=item.User.Id,
+                                                         Date=item.Date,
+                                                         User=item.User})'">Edit</a> |
+                    <a asp-action="Details" asp-route-id="@item.OrderId">Details</a> |
+                    <a asp-action="DeleteOrder" asp-route-id="@item.OrderId">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

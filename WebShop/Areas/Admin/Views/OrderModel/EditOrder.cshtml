@@ -1,0 +1,62 @@
+﻿@model WebShop.Models.ProductOrderModel
+
+@{
+    ViewData["Title"] = "EditOrder";
+}
+
+<h2>Edit Order</h2>
+
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Order.User.Id" />
+            <input type="hidden" asp-for="Order.User.UserName" />
+            <input type="hidden" asp-for="Order.User.NormalizedUserName" />
+            <input type="hidden" asp-for="Order.User.Email" />
+            <input type="hidden" asp-for="Order.User.NormalizedEmail" />
+            <input type="hidden" asp-for="Order.User.EmailConfirmed" />
+            <input type="hidden" asp-for="Order.User.PasswordHash" />
+            <input type="hidden" asp-for="Order.User.SecurityStamp" />
+            <input type="hidden" asp-for="Order.User.ConcurrencyStamp" />
+            <input type="hidden" asp-for="Order.User.PhoneNumber" />
+            <input type="hidden" asp-for="Order.User.PhoneNumberConfirmed" />
+            <input type="hidden" asp-for="Order.User.TwoFactorEnabled" />
+            <input type="hidden" asp-for="Order.User.LockoutEnd" />
+            <input type="hidden" asp-for="Order.User.LockoutEnabled" />
+            <input type="hidden" asp-for="Order.User.AccessFailedCount" />
+            <input type="hidden" asp-for="Order.User.Discriminator" />
+            <input type="hidden" asp-for="Order.User.FirstName" />
+            <input type="hidden" asp-for="Order.User.LastName" />
+            <div class="form-group">
+                <label asp-for="Order.User.UserName" class="control-label">User Name</label>
+                <input asp-for="Order.User.UserName" class="form-control" readonly style="width:auto" />
+                <span asp-validation-for="Order.User.UserName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Order.User.Street" class="control-label"></label>
+                <input asp-for="Order.User.Street" class="form-control" style="width:auto" />
+                <span asp-validation-for="Order.User.Street" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Order.User.ZipCode" class="control-label">Zip Code</label>
+                <input asp-for="Order.User.ZipCode" class="form-control" style="width:auto" />
+                <span asp-validation-for="Order.User.ZipCode" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Order.User.City" class="control-label"></label>
+                <input asp-for="Order.User.City" class="form-control" style="width:auto" />
+                <span asp-validation-for="Order.User.City" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" asp-action="EditOrderConfirmed" value="Save" class="btn btn-default" />
+            </div>
+        </form>
+    </div>
+</div>
+<hr />
+<div>
+    <a asp-action="Index">Back to Orderlist</a>
+</div>
+<br>
