@@ -1,3 +1,3 @@
 # WebShop
-Conceptual Webshop
-This is an ASP.NET MVC WebShop-project made by .net students for educational purpose
+Conceptual WebShop.
+This is an ASP.NET MVC WebShop-project made by .NET students for educational purpose
